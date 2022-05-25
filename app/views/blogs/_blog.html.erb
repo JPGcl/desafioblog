@@ -1,0 +1,31 @@
+<div id="<%= dom_id blog %>" class="grid grid-flow-col auto-cols-max gap-4">
+  	<div id="blogs" class="min-w-full">
+		<div style="width: 30rem;" class="card max-w-sm rounded overflow-hidden shadow-lg object-contain hover:object-scale-down">
+			<div class="px-10 py-5 h-6 px-5">
+				<%= image_tag blog.image_url, class: "object-fill h-48 w-96", size: "200x160" %>
+				<div class="font-bold text-xl mb-2 fs-4"><%= blog.title %></div>
+				<div class="text-justify"><%= blog.content %></div>
+			</div>
+			
+			<hr>
+
+			<div class="px-6 pt-4 pb-2 text-center">
+				<div class="inline">
+					<% if action_name == "show" %>
+						<%= link_to "Editar", edit_blog_path(@blog), class: "btn btn-warning btn-xs" %>
+						<%= link_to "Ir al inicio", blogs_path, class: "btn btn-success btn-xs" %>
+
+						<%= button_to "Borrar", blog_path(@blog), method: :delete, class: "btn btn-danger btn-xs" %>	
+					<% end %>
+
+					<% if action_name != "show" %>
+						<%= link_to "Editar", edit_blog_path(blog), class: "btn btn-warning btn-xs" %>
+						<%= link_to "Ver", blog, class: "btn btn-success btn-xs" %>
+					<% end %>
+				</div>
+			</div>
+	  	</div>
+	</div>
+	<br>
+	<br>
+</div>

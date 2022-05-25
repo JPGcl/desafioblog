@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Blogs</h1>
+
+<%= link_to "Agregar un nuevo blog", new_blog_path, class: "btn btn-info btn-xs" %>
+<br>
+<br>
+<div id="blogs">
+  <% @blogs.each do |blog| %>
+    <%= render blog %>
+  <% end %>
+</div>

@@ -1,0 +1,37 @@
+<%= form_with(model: blog, class: "contents") do |form| %>
+  <% if blog.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(blog.errors.count, "error") %> No se puede guardar este Post:</h2>
+      <ul>
+        <% blog.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="my-5 block shadow rounded-md border border-gray-200 outline-none px-4 py-4 mt-4 w-full">
+    <div class="object-fill h-48 w-96">
+      <%= image_tag blog.image_url, size: "200x160" %>
+      <div class="my-5">
+        <%= form.label :title%>
+        <%= form.text_field :title %>
+      </div>  
+
+      <div class="my-5">
+        <%= form.label :image_url %>
+        <%= form.text_field :image_url %>
+      </div>
+
+      <div class="my-5">
+        <%= form.label :content %>
+        <%= form.text_area :content %>
+      </div>
+
+      <div class="inline">
+        <%= form.submit "Guardar", class: "btn btn-info btn-xs" %>
+        <%= link_to "Ir al inicio", blogs_path, class: "btn btn-success btn-xs" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
