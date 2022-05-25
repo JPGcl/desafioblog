@@ -11,9 +11,14 @@
   <% end %>
   <div class="my-5 block shadow rounded-md border border-gray-200 outline-none px-4 py-4 mt-4 w-full">
     <div class="object-fill h-48 w-96">
-      <%= image_tag blog.image_url, size: "200x160" %>
       <div class="my-5">
-        <%= form.label :title%>
+      <!-- %= action_name % !-->
+					<% if action_name == "edit" %>
+				    <%= image_tag blog.image_url, class: "object-fill h-48 w-96", size: "200x160" %>
+          <% end %>
+      </div>
+      <div class="my-5">
+        <%= form.label :title %>
         <%= form.text_field :title %>
       </div>  
 
@@ -33,5 +38,4 @@
       </div>
     </div>
   </div>
-
 <% end %>
