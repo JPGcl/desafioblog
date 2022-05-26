@@ -6,7 +6,7 @@
 				<div class="font-bold text-xl mb-2 fs-4"><%= blog.title %></div>
 				<div class="text-justify"><%= blog.content %></div>
 			</div>
-			
+
 			<hr>
 
 			<div class="px-6 pt-4 pb-2 text-center">
@@ -15,11 +15,11 @@
 						<%= link_to "Editar", edit_blog_path(@blog), class: "btn btn-warning btn-xs" %>
 						<%= link_to "Ir al inicio", blogs_path, class: "btn btn-success btn-xs" %>
 
-						<%= button_to "Borrar", blog_path(@blog), method: :delete, class: "btn btn-danger btn-xs" %>	
+						<%= button_to "Borrar", blog_path(@blog), method: :delete, class: "btn btn-danger btn-xs" %>
 					<% end %>
 
 					<% if action_name != "show" %>
-						<%= link_to "Editar", edit_blog_path(blog), class: "btn btn-warning btn-xs" %>
+						<%= link_to "Editar", edit_blog_path(@blog), class: "btn btn-warning btn-xs" %>
 						<%= link_to "Ver", blog, class: "btn btn-success btn-xs" %>
 					<% end %>
 				</div>
